@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MyVKTestCom</string>
+
+    <string name="network_connection_error">Ошибка подключения. Проверьте интернет-соединение.</string>
+    <string name="file_not_found_error">Не удалось найти файл. Попробуйте загрузить его.</string>
+    <string name="decoder_init_error">Ошибка инициализации декодера. Попробуйте перезапустить плеер.</string>
+    <string name="generic_playback_error">Ошибка при воспроизведении.</string>
+    <string name="video_player_toolbar_title">Видеоплеер</string>
+    <string name="playlist_toolbar_title">Плейлист</string>
+
 </resources>
