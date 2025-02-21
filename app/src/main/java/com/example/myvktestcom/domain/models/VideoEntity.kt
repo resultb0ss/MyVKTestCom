@@ -1,4 +1,4 @@
-package com.example.myvktestcom.domain
+package com.example.myvktestcom.domain.models
 
 data class VideoEntity(
     val id: String = "0",

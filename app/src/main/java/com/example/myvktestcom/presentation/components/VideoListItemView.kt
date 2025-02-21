@@ -26,7 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.example.myvktestcom.domain.VideoEntity
+import com.example.myvktestcom.domain.models.VideoEntity
 
 
 @Composable

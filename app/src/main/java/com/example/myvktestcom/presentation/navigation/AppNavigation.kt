@@ -3,7 +3,7 @@ package com.example.myvktestcom.presentation.navigation
 import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
-import com.example.myvktestcom.domain.VideoEntity
+import com.example.myvktestcom.domain.models.VideoEntity
 import com.example.myvktestcom.presentation.screen.MainListScreen
 import com.example.myvktestcom.presentation.screen.VideoPlayerScreen
 

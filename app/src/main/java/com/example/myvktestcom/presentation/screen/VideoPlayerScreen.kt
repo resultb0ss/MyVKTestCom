@@ -13,17 +13,20 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myvktestcom.R
 import com.example.myvktestcom.presentation.components.Media3AndroidView
-import com.example.myvktestcom.presentation.viewmodels.MainListScreenViewModel
+import com.example.myvktestcom.presentation.viewmodels.VideoPlayerScreenViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun VideoPlayerScreen(videoUrl: String, onClick: () -> Unit) {
-
-    val playerViewModel: MainListScreenViewModel = viewModel()
+fun VideoPlayerScreen(
+    videoUrl: String,
+    onClick: () -> Unit
+) {
+    val playerViewModel: VideoPlayerScreenViewModel = hiltViewModel()
     val context = LocalContext.current
     val player = playerViewModel.playerState.collectAsState().value
 
@@ -47,7 +50,8 @@ fun VideoPlayerScreen(videoUrl: String, onClick: () -> Unit) {
                 }
             }
         )
-        Media3AndroidView(player)
+        player?.let {
+            Media3AndroidView(player = it)
+        }
     }
-
 }

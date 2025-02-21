@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.example.myvktestcom.R
-import com.example.myvktestcom.domain.VideoEntity
+import com.example.myvktestcom.domain.models.VideoEntity
 import com.example.myvktestcom.presentation.components.VideoListItemView
 
 
