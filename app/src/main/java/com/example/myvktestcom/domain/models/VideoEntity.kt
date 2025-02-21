@@ -8,6 +8,6 @@ data class VideoEntity(
     @PrimaryKey val id: String = "0",
     val title: String,
     val thumbnail: String,
-    val description: String,
+    val description: String = "00:20",
     val mp4Url: String
 )

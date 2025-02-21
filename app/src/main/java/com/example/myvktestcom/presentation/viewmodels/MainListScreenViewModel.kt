@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class MainListScreenViewModel @Inject constructor(
     private val getVideoUseCase: GetVideoUseCase
 ) : ViewModel() {
     private var _videos =

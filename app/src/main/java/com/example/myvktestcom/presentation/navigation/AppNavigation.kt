@@ -15,7 +15,7 @@ fun AppNavigation(videos: List<VideoEntity>) {
     AppNavGraph(
         navHostController = navHostController,
         homeScreenContent = {
-            MainListScreen(videos) { videoUrl ->
+            MainListScreen { videoUrl ->
                 navHostController.navigate(
                     Screen.VideoPlayerScreen.route.replace(
                         "{videoUrl}",
