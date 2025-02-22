@@ -64,6 +64,7 @@ dependencies {
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.1.0")
 
+    //Navigation
     implementation("androidx.navigation:navigation-compose:2.8.7")
 
     //ExoPlayer
@@ -96,5 +97,14 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx)
+
+    //Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.7.8")
+    androidTestImplementation("androidx.compose.ui:ui-test-manifest:1.7.8")
+    testImplementation("org.mockito:mockito-core:4.5.1")
+    androidTestImplementation("org.mockito:mockito-android:4.5.1")
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.7.8")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.55")
     
 }
