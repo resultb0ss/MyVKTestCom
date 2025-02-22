@@ -29,6 +29,9 @@ class VideoRepositoryImpl @Inject constructor(
                 val response = apiInterface.getVideos("Bearer $token")
 
                 if (response.isSuccessful) {
+
+                    videoDao.deleteAllVideos()
+
                     val videos = checkNotNull(response.body()).data.map { it.toVideoEntity() }
                     videoDao.insertVideos(videos)
                     emit(Resource.Success(videos))
