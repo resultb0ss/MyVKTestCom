@@ -1,6 +1,7 @@
 package com.example.myvktestcom.presentation.screen
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -60,7 +62,7 @@ fun VideoPlayerScreen(
                 isTopAppBarVisible != isTopAppBarVisible
             }
     ) {
-        Column {
+        Column(Modifier.background(color = Color.Black)) {
 
             if (isPortrait && isTopAppBarVisible.value) {
                 TopAppBar(
@@ -74,7 +76,7 @@ fun VideoPlayerScreen(
             }
 
             player?.let {
-                Media3AndroidView(player = it)
+                Media3AndroidView(player = it, isPortrait)
             }
         }
     }
