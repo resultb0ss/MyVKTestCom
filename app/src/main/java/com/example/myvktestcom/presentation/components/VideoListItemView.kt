@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.myvktestcom.domain.models.VideoEntity
 
-
 @Composable
 fun VideoListItemView(video: VideoEntity, onItemClick: () -> Unit) {
 
@@ -76,5 +75,4 @@ fun VideoListItemView(video: VideoEntity, onItemClick: () -> Unit) {
             }
         }
     }
-
 }

@@ -14,18 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyVKTestComTheme {
-                val videos = listOf(VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"),
-                    VideoEntity("0","FireRain","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/thumbnail.jpg","00:20","https://vod.api.video/vod/vi7kTQuETwSv00H2eqbSOkaE/mp4/source.mp4"))
-
-                AppNavigation(videos)
-
+               AppNavigation()
             }
         }
     }

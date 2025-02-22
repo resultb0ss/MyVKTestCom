@@ -15,9 +15,13 @@ import javax.inject.Inject
 class MainListScreenViewModel @Inject constructor(
     private val getVideoUseCase: GetVideoUseCase
 ) : ViewModel() {
+
     private var _videos =
         MutableStateFlow<Resource<List<VideoEntity>>>(Resource.Success(emptyList()))
     val videos: StateFlow<Resource<List<VideoEntity>>> = _videos
+
+    private var _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean> = _isRefreshing
 
     init {
         loadVideos()
@@ -25,8 +29,16 @@ class MainListScreenViewModel @Inject constructor(
 
     fun loadVideos() {
         viewModelScope.launch {
-            getVideoUseCase.execute().collect { resource ->
-                _videos.value = resource
+            _isRefreshing.value = true
+            _videos.value = Resource.Loading()
+            try {
+                getVideoUseCase.execute().collect { resource ->
+                    _videos.value = resource
+                    _isRefreshing.value = false
+                }
+            } catch (e: Exception) {
+                _videos.value = Resource.Error("Error: ${e.localizedMessage}")
+                _isRefreshing.value = false
             }
         }
     }

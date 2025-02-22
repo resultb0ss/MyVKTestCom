@@ -6,10 +6,10 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.PlaybackException
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
+import com.example.myvktestcom.R
 import com.example.myvktestcom.domain.repositories.VideoPlayerRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import com.example.myvktestcom.R
 import javax.inject.Inject
 
 class VideoPlayerRepositoryImpl @Inject constructor() : VideoPlayerRepository {
@@ -59,12 +59,15 @@ class VideoPlayerRepositoryImpl @Inject constructor() : VideoPlayerRepository {
             PlaybackException.ERROR_CODE_IO_NETWORK_CONNECTION_FAILED -> {
                 context.getString(R.string.network_connection_error)
             }
+
             PlaybackException.ERROR_CODE_IO_FILE_NOT_FOUND -> {
                 context.getString(R.string.file_not_found_error)
             }
+
             PlaybackException.ERROR_CODE_DECODER_INIT_FAILED -> {
                 context.getString(R.string.decoder_init_error)
             }
+
             else -> {
                 context.getString(R.string.generic_playback_error)
             }

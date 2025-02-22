@@ -7,5 +7,7 @@
     <string name="generic_playback_error">Ошибка при воспроизведении.</string>
     <string name="video_player_toolbar_title">Видеоплеер</string>
     <string name="playlist_toolbar_title">Плейлист</string>
+    <string name="error_loading_data">Error loading data</string>
+    <string name="unknown_error">Unknown error</string>
 
 </resources>

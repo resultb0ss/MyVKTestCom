@@ -28,7 +28,11 @@ class VideoPlayerScreenViewModel @Inject constructor(
 
     fun initializePlayer(context: Context, videoUrl: String) {
         viewModelScope.launch {
-            initializePlayerUseCase(context, videoUrl)
+            try {
+                initializePlayerUseCase(context, videoUrl)
+            } catch (e: Exception) {
+                //Могу поставить лог сюда
+            }
         }
     }
 
@@ -43,5 +47,4 @@ class VideoPlayerScreenViewModel @Inject constructor(
             releasePlayerUseCase()
         }
     }
-
 }

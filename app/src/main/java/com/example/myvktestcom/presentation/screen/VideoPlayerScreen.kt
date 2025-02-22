@@ -7,12 +7,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -38,14 +41,23 @@ fun VideoPlayerScreen(
     val playerViewModel: VideoPlayerScreenViewModel = hiltViewModel()
     val context = LocalContext.current
     val player = playerViewModel.playerState.collectAsState().value
+    val errorMessage =
+        playerViewModel.errorMessage.collectAsState().value
 
     val configuration = LocalConfiguration.current
     val isPortrait = configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
     var isTopAppBarVisible = remember { mutableStateOf(true) }
+    val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(videoUrl) {
         playerViewModel.initializePlayer(context, videoUrl)
+    }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            snackbarHostState.showSnackbar(it)
+        }
     }
 
     DisposableEffect(Unit) {
@@ -59,17 +71,27 @@ fun VideoPlayerScreen(
         modifier = Modifier
             .fillMaxSize()
             .clickable {
-                isTopAppBarVisible != isTopAppBarVisible
+                isTopAppBarVisible.value = !isTopAppBarVisible.value
             }
     ) {
         Column(Modifier.background(color = Color.Black)) {
 
             if (isPortrait && isTopAppBarVisible.value) {
                 TopAppBar(
-                    title = { Text(text = context.getString(R.string.video_player_toolbar_title)) },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Black),
+                    title = {
+                        Text(
+                            text = context.getString(R.string.video_player_toolbar_title),
+                            color = Color.White
+                        )
+                    },
                     navigationIcon = {
                         IconButton(onClick = { onClick() }) {
-                            Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                            Icon(
+                                Icons.Outlined.ArrowBack,
+                                contentDescription = "Back",
+                                tint = Color.White
+                            )
                         }
                     }
                 )
@@ -77,6 +99,10 @@ fun VideoPlayerScreen(
 
             player?.let {
                 Media3AndroidView(player = it, isPortrait)
+            }
+
+            if (errorMessage != null) {
+                SnackbarHost(snackbarHostState)
             }
         }
     }

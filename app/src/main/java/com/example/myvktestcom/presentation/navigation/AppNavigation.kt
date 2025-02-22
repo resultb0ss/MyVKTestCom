@@ -8,7 +8,7 @@ import com.example.myvktestcom.presentation.screen.MainListScreen
 import com.example.myvktestcom.presentation.screen.VideoPlayerScreen
 
 @Composable
-fun AppNavigation(videos: List<VideoEntity>) {
+fun AppNavigation() {
 
     val navHostController = rememberNavController()
 

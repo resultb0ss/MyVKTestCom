@@ -2,7 +2,6 @@ package com.example.myvktestcom.presentation.components
 
 import androidx.annotation.OptIn
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
@@ -19,7 +18,7 @@ fun Media3AndroidView(player: ExoPlayer?, isPortrait: Boolean) {
         factory = { context ->
             PlayerView(context).apply {
                 this.player = player
-                this.resizeMode = if (isPortrait){
+                this.resizeMode = if (isPortrait) {
                     AspectRatioFrameLayout.RESIZE_MODE_FIT
                 } else {
                     AspectRatioFrameLayout.RESIZE_MODE_ZOOM
